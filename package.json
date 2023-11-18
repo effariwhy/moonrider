@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "deploy": "npm run predeploy && demo001 git@github.com:effariwhy/vr-exercise.git -p .demo001 && rm -rf .demo001",
+    "deploy": "npm run predeploy",
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
-    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .demo001 && cp -r index.html assets build vendor CNAME .demo001",
+    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/demo001 && cp -r index.html assets build vendor ../effariwhy.github.io/demo001",
     "start": "webpack-dev-server --host 0.0.0.0 --progress --colors --hot-only --inline --port 3000"
   },
   "dependencies": {
@@ -81,7 +81,7 @@
   },
   "devDependencies": {
     "cross-env": "4.0.0",
-    "demo001": "0.0.10",
+    "ghpages": "0.0.10",
     "semistandard": "10.0.0",
     "shx": "^0.2.2",
     "snazzy": "7.0.0",
