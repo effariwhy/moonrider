@@ -7,7 +7,7 @@
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
     "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/demo001 && cp -r index.html assets build vendor ../effariwhy.github.io/demo001",
-    "start": "webpack-dev-server --host 0.0.0.0 --progress --colors --hot-only --inline --port 3000"
+    "start": "webpack-dev-server --host localhost --progress --colors --hot-only --inline --port 3000"
   },
   "dependencies": {
     "@babel/cli": "^7.17.0",
@@ -52,7 +52,6 @@
     "babel-preset-minify": "^0.5.0",
     "css-loader": "^0.28.7",
     "debug": "^4.1.0",
-    "firebase": "^7.19.0",
     "html-require-loader": "^1.0.1",
     "ip": "1.1.5",
     "json-loader": "^0.5.7",
