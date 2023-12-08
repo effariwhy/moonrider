@@ -5,7 +5,8 @@ const convertBeatmap = require('../lib/convert-beatmap');
 
 const challengeDataStore = {};
 let HAS_LOGGED_VR = false;
-const SEARCH_PER_PAGE = 6;
+const MAP_SEARCH_PER_PAGE = 6;
+const PLAYLIST_SEARCH_PER_PAGE = 6; //TODO - add playlist search
 const SONG_NAME_TRUNCATE = 22;
 const SONG_SUB_NAME_RESULT_TRUNCATE = 32;
 const SONG_SUB_NAME_DETAIL_TRUNCATE = 55;
@@ -38,7 +39,7 @@ const SKIP_INTRO = AFRAME.utils.getUrlParameter('skipintro') === 'true';
 
 const colorScheme = localStorage.getItem('colorScheme') || 'default';
 
-let favorites = localStorage.getItem('favorites-v2');
+let favorites = [];//localStorage.getItem('favorites-v2');
 if (favorites) {
   try {
     favorites = JSON.parse(favorites);
@@ -303,7 +304,7 @@ AFRAME.registerState({
       state.score.beatsHit = 125;
       state.score.beatsMissed = 125;
       state.score.maxCombo = 123;
-      state.score.rank = 'A';
+      state.score.rank = '*';
       state.score.score = 9001;
       state.introActive = false;
       computeBeatsText(state);
@@ -605,7 +606,7 @@ AFRAME.registerState({
     },
 
     searchnextpage: state => {
-      if (state.search.page > Math.floor(state.search.results.length / SEARCH_PER_PAGE)) {
+      if (state.search.page > Math.floor(state.search.results.length / MAP_SEARCH_PER_PAGE)) {
         return;
       }
       state.search.page++;
@@ -615,7 +616,7 @@ AFRAME.registerState({
         return;
       }
 
-      if ((state.search.page + 3) > Math.floor(state.search.results.length / SEARCH_PER_PAGE)) {
+      if ((state.search.page + 3) > Math.floor(state.search.results.length / MAP_SEARCH_PER_PAGE)) {
 
         state.search.urlPage = state.search.urlPage + 1;
 
@@ -680,17 +681,17 @@ AFRAME.registerState({
 
       const accuracy = parseFloat(state.score.accuracy);
       if (accuracy >= 97) {
-        state.score.rank = 'S';
+        state.score.rank = '*';
       } else if (accuracy >= 90) {
-        state.score.rank = 'A';
+        state.score.rank = '*';
       } else if (accuracy >= 80) {
-        state.score.rank = 'B';
+        state.score.rank = '*';
       } else if (accuracy >= 70) {
-        state.score.rank = 'C';
+        state.score.rank = '*';
       } else if (accuracy >= 60) {
-        state.score.rank = 'D';
+        state.score.rank = '*';
       } else {
-        state.score.rank = 'F';
+        state.score.rank = '*';
       }
 
       computeBeatsText(state);
@@ -749,7 +750,7 @@ AFRAME.registerState({
 
     victoryfake: state => {
       state.score.accuracy = '74.99';
-      state.score.rank = 'C';
+      state.score.rank = '*';
     },
 
     wallhitstart: state => {
@@ -799,7 +800,7 @@ AFRAME.registerState({
 });
 
 function computeSearchPagination(state) {
-  let numPages = Math.ceil(state.search.results.length / SEARCH_PER_PAGE);
+  let numPages = Math.ceil(state.search.results.length / MAP_SEARCH_PER_PAGE);
   state.search.hasPrev = state.search.page > 0;
   state.search.hasNext = state.search.page < numPages - 1;
 
@@ -808,8 +809,8 @@ function computeSearchPagination(state) {
 
   state.searchResultsPage.length = 0;
   state.searchResultsPage.__dirty = true;
-  for (let i = state.search.page * SEARCH_PER_PAGE;
-    i < state.search.page * SEARCH_PER_PAGE + SEARCH_PER_PAGE; i++) {
+  for (let i = state.search.page * MAP_SEARCH_PER_PAGE;
+    i < state.search.page * MAP_SEARCH_PER_PAGE + MAP_SEARCH_PER_PAGE; i++) {
     const result = state.search.results[i];
     if (!result) { break; }
     state.searchResultsPage.push(result);
