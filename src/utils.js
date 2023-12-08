@@ -1,4 +1,4 @@
-const BASE_URL = 'https://effariwhy.github.io/dance';
+const BASE_URL = 'https://effariwhy.github.io/vr-exercise';
 
 function getS3FileUrl (id, name) {
   return `${BASE_URL}/${id}-${name}?v=2`;

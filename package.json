@@ -2,12 +2,12 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack --mode=development",
     "deploy": "npm run predeploy",
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
-    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/demo001 && cp -r index.html assets build vendor ../effariwhy.github.io/demo001",
-    "start": "webpack-dev-server --host localhost --progress --colors --hot-only --inline --port 3000"
+    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/vr-exercise && cp -r index.html assets build vendor ../effariwhy.github.io/vr-exercise",
+    "start": "webpack-dev-server --host localhost --progress --colors --hot-only --inline --port 3005"
   },
   "dependencies": {
     "@babel/cli": "^7.17.0",

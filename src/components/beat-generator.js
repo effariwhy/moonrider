@@ -212,6 +212,7 @@ AFRAME.registerComponent('beat-generator', {
       }
     }
 
+    /* NO WALLS
     if (this.data.gameMode !== 'ride') {
       // Walls.
       const obstacles = this.beatData._obstacles;
@@ -222,6 +223,7 @@ AFRAME.registerComponent('beat-generator', {
         }
       }
     }
+    */
 
     // Stage events.
     const events = this.beatData._events;

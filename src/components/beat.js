@@ -8,7 +8,7 @@ const collisionZThreshold = -1.65;
 
 const ANGLE_DOT_SUPER = 0.97; // ~15-degrees.
 const ANGLE_DOT_MIN = 0.625; // ~50-degrees.
-const WARMUP_TIME = 2000;
+const WARMUP_TIME = 4000;
 const WARMUP_ROTATION_CHANGE = 2 * Math.PI;
 
 const elasticEasing = getElasticEasing(1.33, 0.5);
