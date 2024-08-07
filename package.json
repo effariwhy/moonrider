@@ -6,7 +6,7 @@
     "deploy": "npm run predeploy",
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
-    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/vr-exercise && cp -r index.html assets build vendor ../effariwhy.github.io/vr-exercise",
+    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p play && cp -r index.html assets build vendor play",
     "start": "webpack-dev-server --host localhost --progress --colors --hot-only --inline --port 3000"
   },
   "dependencies": {
