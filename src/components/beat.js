@@ -507,7 +507,7 @@ AFRAME.registerComponent('beat', {
     }
 
     // Sound.
-    this.el.parentNode.components['beat-hit-sound'].playSound(this.el, this.cutDirection);
+    // this.el.parentNode.components['beat-hit-sound'].playSound(this.el, this.cutDirection);
 
     if (wrongHit) {
       this.wrongHit();
@@ -626,7 +626,7 @@ AFRAME.registerComponent('beat', {
   autoHit: function (weaponEl) {
     const el = this.el;
     this.destroyBeat(weaponEl, Math.random() < 0.9);
-    el.parentNode.components['beat-hit-sound'].playSound(el, this.cutDirection);
+    //el.parentNode.components['beat-hit-sound'].playSound(el, this.cutDirection);
     const hitEventDetail = this.hitEventDetail;
     hitEventDetail.percent = 100;
     hitEventDetail.score = 100;

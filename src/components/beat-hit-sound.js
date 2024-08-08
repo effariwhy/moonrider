@@ -71,7 +71,7 @@ AFRAME.registerComponent('beat-hit-sound', {
     const rand = 1 + Math.floor(Math.random() * 10);
     const dir = this.directionsToSounds[cutDirection || 'up'];
     const soundPool = this.el.components[`sound__beathit${rand}${dir}`];
-    soundPool.playSound(this.processSound);
+    //soundPool.playSound(this.processSound);
   },
 
   /**
