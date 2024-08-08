@@ -132,4 +132,4 @@ dist
 
 # build directory should be copied to a folder in your username.github.io repository
 # along with other files during deploy to keep this repository cleaner
-build/
+/build/
