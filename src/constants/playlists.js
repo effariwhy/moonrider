@@ -1,6 +1,7 @@
 module.exports = [
   {name: '640434', author: 'effariwhy', title: "1970s"},
   {name: '640423', author: 'effariwhy', title: "1980s"},
+  {name: '640969', author: 'effariwhy', title: "1980s - BIG"},
   {name: '640433', author: 'effariwhy', title: "1990s"},
   {name: '640435', author: 'effariwhy', title: "2000s"},
   {name: '640436', author: 'effariwhy', title: "2010s"},
