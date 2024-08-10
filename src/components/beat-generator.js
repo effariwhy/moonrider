@@ -322,6 +322,7 @@ AFRAME.registerComponent('beat-generator', {
   },
 
   generateWall: function (wallInfo) {
+    return;
     const data = this.data;
     const wallEl = this.el.sceneEl.components.pool__wall.requestEntity();
 
@@ -337,6 +338,7 @@ AFRAME.registerComponent('beat-generator', {
   },
 
   setupWall: function (wallEl, wallInfo) {
+    return;
     const data = this.data;
 
     if (data.has3DOFVR && data.gameMode !== 'viewer') { return; }
