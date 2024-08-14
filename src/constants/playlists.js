@@ -7,6 +7,8 @@ module.exports = [
   {name: '640437', author: 'effariwhy', title: "2020s"},
   {name: '640969', author: 'effariwhy', title: "1980s - BIG"},
   {name: '643159', author: 'effariwhy', title: "beatsage test 643159"},
+  {name: '647552', author: 'effariwhy', title: "evaluate"},
+  {name: '647569', author: 'effariwhy', title: "evaluate 2"},
   //{name: '244101', author: 'effariwhy', title: "effariwhy: Holiday"},
   //{name: '244674', author: 'effariwhy', title: "effariwhy: Pop"},
   //{name: '244673', author: 'effariwhy', title: "effariwhy: Rock and Metal"},
