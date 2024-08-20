@@ -1,10 +1,3 @@
-const BASE_URL = 'https://effariwhy.github.io/vr-exercise';
-
-function getS3FileUrl (id, name) {
-  return `${BASE_URL}/${id}-${name}?v=2`;
-}
-module.exports.getS3FileUrl = getS3FileUrl;
-
 /**
  * Helper to visualize lines.
  */

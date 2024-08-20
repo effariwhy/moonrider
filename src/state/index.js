@@ -86,7 +86,6 @@ AFRAME.registerState({
     colorSecondaryBright: COLORS.schemes[colorScheme].secondarybright,
     colorTertiary: COLORS.schemes[colorScheme].tertiary,
     controllerType: '',
-    damage: 0,
     difficultyFilter: 'All',
     difficultyFilterMenuOpen: false,
     favorites: favorites,
@@ -184,9 +183,6 @@ AFRAME.registerState({
     },
 
     beathit: (state, payload) => {
-      if (state.damage > DAMAGE_DECAY) {
-        state.damage -= DAMAGE_DECAY;
-      }
 
       state.score.beatsHit++;
       state.score.combo++;
@@ -202,13 +198,11 @@ AFRAME.registerState({
 
     beatmiss: state => {
       state.score.beatsMissed++;
-      takeDamage(state);
       updateScoreAccuracy(state);
     },
 
     beatwrong: state => {
       state.score.beatsMissed++;
-      takeDamage(state);
       updateScoreAccuracy(state);
     },
 
@@ -530,7 +524,6 @@ AFRAME.registerState({
     },
 
     minehit: state => {
-      takeDamage(state);
     },
 
     optionsmenuopen: state => {
@@ -754,7 +747,6 @@ AFRAME.registerState({
     },
 
     wallhitstart: state => {
-      takeDamage(state);
     },
 
     ziploaderend: (state, payload) => {
@@ -852,24 +844,10 @@ function difficultyComparator(a, b) {
   return 0;
 }
 
-function takeDamage(state) {
-  if (!state.isPlaying || !state.inVR) { return; }
-  state.score.combo = 0;
-  // No damage for now.
-  // state.damage++;
-  // if (AFRAME.utils.getUrlParameter('godmode')) { return; }
-  // checkGameOver(state);
-}
-
 function checkGameOver(state) {
-  if (state.damage >= DAMAGE_MAX) {
-    state.damage = 0;
-    state.isGameOver = true;
-  }
 }
 
 function resetScore(state) {
-  state.damage = 0;
   state.score.accuracy = 100;
   state.score.accuracyInt = 100;
   state.score.accuracyScore = 0;
