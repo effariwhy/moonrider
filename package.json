@@ -4,7 +4,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode=development",
     "deploy": "npm run predeploy",
-    "tempdeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor .ghpages && ghpages git@github.com:effariwhy/moonrider.git -p .ghpages && rm -rf .ghpages",
+    "deploy2": "",
+    "deploy3": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor .ghpages && ghpages git@github.com:effariwhy/moonrider.git -p .ghpages && rm -rf .ghpages",
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
     "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p docs && cp -r index.html assets build vendor docs",
@@ -78,7 +79,7 @@
     }
   },
   "devDependencies": {
-    "cross-env": "4.0.0",
+    "cross-env": "^4.0.0",
     "ghpages": "0.0.10",
     "semistandard": "10.0.0",
     "shx": "^0.2.2",
