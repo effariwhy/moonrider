@@ -1,4 +1,5 @@
 module.exports = [
+  {name: 'favorites', author: 'You!', title: 'Your Saved Favorites'},
   {name: '654120', author: 'effariwhy', title: "approved"},
   {name: '643159', author: 'effariwhy', title: "evaluate 3"},
   {name: '647552', author: 'effariwhy', title: "evaluate"},

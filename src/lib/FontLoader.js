@@ -194,3 +194,4 @@ import {
   Font.prototype.isFont = true;
   
   export { FontLoader, Font };
+  

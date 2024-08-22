@@ -39,7 +39,7 @@ const SKIP_INTRO = AFRAME.utils.getUrlParameter('skipintro') === 'true';
 
 const colorScheme = localStorage.getItem('colorScheme') || 'default';
 
-let favorites = localStorage.getItem('local-favorites');
+let favorites = localStorage.getItem('favorites-v2');
 if (favorites) {
   try {
     favorites = JSON.parse(favorites);
@@ -343,7 +343,7 @@ AFRAME.registerState({
         for (let i = 0; i < state.favorites.length; i++) {
           if (state.favorites[i].id === id) {
             state.favorites.splice(i, 1);
-            localStorage.setItem('local-favorites', JSON.stringify(state.favorites));
+            localStorage.setItem('favorites-v2', JSON.stringify(state.favorites));
             return;
           }
         }
@@ -352,7 +352,7 @@ AFRAME.registerState({
         state.menuSelectedChallenge.isFavorited = true;
         if (state.favorites.filter(favorite => favorite.id === id).length) { return; }
         state.favorites.push(challenge)
-        localStorage.setItem('local-favorites', JSON.stringify(state.favorites));
+        localStorage.setItem('favorites-v2', JSON.stringify(state.favorites));
       }
     },
 
