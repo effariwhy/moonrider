@@ -433,7 +433,7 @@ AFRAME.registerState({
       let challenge = challengeDataStore[id];
       if (!challenge) { return; }
       Object.assign(state.menuSelectedChallenge, challenge);
-      state.menuSelectedChallenge.songName = truncate(challenge.metadata.songName, 24);
+      state.menuSelectedChallenge.songName = truncate(challenge.id + challenge.metadata.songName, 24);
 
       // Populate difficulty options.
       state.menuDifficulties.length = 0;
@@ -886,7 +886,7 @@ function computeBeatsText(state) {
 function updateMenuSongInfo(state, challenge) {
   let info = JSON.parse(challenge.metadata.characteristics)[state.menuSelectedChallenge.beatmapCharacteristic][state.menuSelectedChallenge.difficulty];
 
-  state.menuSelectedChallenge.songInfoText = `Mapped by ${truncate(challenge.metadata.levelAuthorName, SONG_SUB_NAME_DETAIL_TRUNCATE)}\n${challenge.genre && challenge.genre !== 'Uncategorized' ? challenge.genre + '\n' : ''}${formatSongLength(challenge.metadata.duration)} / ${info.notes} notes\n${info.bombs} bombs | ${info.obstacles} obstacles\nNJS: ${info.njs}`;
+  state.menuSelectedChallenge.songInfoText = `Mapped by ${truncate(challenge.metadata.levelAuthorName, SONG_SUB_NAME_DETAIL_TRUNCATE)}\n${challenge.genre && challenge.genre !== 'Uncategorized' ? challenge.genre + '\n' : ''}${formatSongLength(challenge.metadata.duration)} / ${info.notes} notes\n${info.bombs} bombs | ${info.obstacles} obstacles\nNJS: ${info.njs} ID: ${challenge.id}`;
 }
 
 function updateScoreAccuracy(state) {
