@@ -38,7 +38,7 @@ AFRAME.registerComponent('menu-mode', {
   update: function () {
     if (this.data.hasVR) {
       this.setModeOption(localStorage.getItem('gameMode') || 'punchvr');
-      this.el.sceneEl.emit('gamemode', modeMap[localStorage.getItem('gameMode') || 'punchvr']);
+      this.el.sceneEl.emit('gamemode', modeMap[.getItem('gameMode') || 'punchvr']);
     } else {
       this.setModeOption('ride2d');
     }

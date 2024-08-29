@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode=development",
-    "deploy": "npm run predeploy",
-    "deploy2": "",
-    "deploy3": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor .ghpages && ghpages git@github.com:effariwhy/moonrider.git -p .ghpages && rm -rf .ghpages",
+    "xdeploy": "npm run predeploy && ghpages git@github.com:effariwhy/moonrider.git -p .ghpages && rm -rf .ghpages",
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
+    "xpredeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor .ghpages",
+    "start": "webpack-dev-server --host 0.0.0.0 --progress --colors --hot-only --inline --port 3000",
+
+    "deploy": "npm run predeploy",
     "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p docs && cp -r index.html assets build vendor docs",
-    "start": "webpack-dev-server --host localhost --progress --colors --hot-only --inline --port 3000"
+    "xstart": "webpack-dev-server --host localhost --progress --colors --hot-only --inline --port 3000"
   },
   "dependencies": {
     "@babel/cli": "^7.17.0",
