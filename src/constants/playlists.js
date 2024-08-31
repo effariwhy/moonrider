@@ -1,7 +1,7 @@
 module.exports = [
   {name: 'favorites', author: 'You!', title: 'Your Saved Favorites'},
-  {name: '12147', author: 'AevynPlaylist', title: "Maps That Vibe - Starter Pack"},
-  {name: '203766', author: 'AevynPlaylist', title: "Maps That Vibe 1500 - Advanced Dance Maps"},
+  {name: '665016', author: 'effariwhy', title: "try"},
+  {name: '654120', author: 'effariwhy', title: "approved"},
   //{name: '643159', author: 'effariwhy', title: "evaluate 3"},
   //{name: '647552', author: 'effariwhy', title: "evaluate"},
   //{name: '647569', author: 'effariwhy', title: "evaluate 2"},
@@ -12,7 +12,6 @@ module.exports = [
   //{name: '640436', author: 'effariwhy', title: "2010s"},
   //{name: '640437', author: 'effariwhy', title: "2020s"},
   //{name: '640969', author: 'effariwhy', title: "1980s - BIG"},
-  //{name: '654120', author: 'effariwhy', title: "approved"},
   //{name: '244101', author: 'effariwhy', title: "effariwhy: Holiday"},
   //{name: '244674', author: 'effariwhy', title: "effariwhy: Pop"},
   //{name: '244673', author: 'effariwhy', title: "effariwhy: Rock and Metal"},
