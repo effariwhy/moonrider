@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZSLVJHB02"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WZSLVJHB02');
+    </script>
     <title>Moon Rider</title>
     <meta name="description" content="A free and open source VR music visualization website. Surf the musical road among the stars, moon, and lights.">
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
     <!--<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@37b219d2cf43c1f7cbd7ac4fc98e8ce5d914a1f7/dist/aframe-master.min.js"></script>-->
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@2c4509aa1a9a3c447c08be9facfea0c7d6a9e156/dist/aframe-master.min.js"></script>
-    <script src="build/build.js?v=3"></script>
+    <script src="build/build.js?v=20240901a"></script>
   </head>
   <body>
     <div id="app"></div>
     <div id="vrButton" title="Enter VR / Fullscreen"><p>Click Here to Enter VR</p></div>
-
+    <div id="thankYouCredits">
+      <h2>This is a custom version</h2>
+      <p>Thank you to the developers at <a href="https://github.com/supermedium">github.com/supermedium</a></p>
+      <p>How this differs from the original</p>
+      <ul>
+        <li>No Leaderboards</li>
+        <li>Score is accuracy only - hit speed removed from scoring formula</li>
+        <li>No Walls</li>
+        <li>No Hit Sounds</li>
+      </ul>
+      <span id="thankYouCreditsClose">&times;</span>
+    </div>
   </body>
 </html>
