@@ -2,18 +2,4 @@ module.exports = [
   {name: 'favorites', author: 'You!', title: 'Your Saved Favorites'},
   {name: '665016', author: 'effariwhy', title: "try"},
   {name: '654120', author: 'effariwhy', title: "approved"},
-  //{name: '643159', author: 'effariwhy', title: "evaluate 3"},
-  //{name: '647552', author: 'effariwhy', title: "evaluate"},
-  //{name: '647569', author: 'effariwhy', title: "evaluate 2"},
-  //{name: '640434', author: 'effariwhy', title: "1970s"},
-  //{name: '640423', author: 'effariwhy', title: "1980s"},
-  //{name: '640433', author: 'effariwhy', title: "1990s"},
-  //{name: '640435', author: 'effariwhy', title: "2000s"},
-  //{name: '640436', author: 'effariwhy', title: "2010s"},
-  //{name: '640437', author: 'effariwhy', title: "2020s"},
-  //{name: '640969', author: 'effariwhy', title: "1980s - BIG"},
-  //{name: '244101', author: 'effariwhy', title: "effariwhy: Holiday"},
-  //{name: '244674', author: 'effariwhy', title: "effariwhy: Pop"},
-  //{name: '244673', author: 'effariwhy', title: "effariwhy: Rock and Metal"},
-  //{name: '244674', author: 'effariwhy', title: "effariwhy: Misc"}//too big to load
 ];

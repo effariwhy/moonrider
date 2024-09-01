@@ -1,6 +1,4 @@
-export NODE_OPTIONS=--openssl-legacy-provider
-
-npm run deploy
+export NODE_OPTIONS=--openssl-legacy-provider ; npm run deploy
 
 # when things break with npm run X:
 rm -rf node_modules
