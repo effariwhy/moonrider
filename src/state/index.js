@@ -151,7 +151,7 @@ AFRAME.registerState({
       combo: 0,
       finalAccuracy: 100,  // Out of 100.
       maxCombo: 0,
-      rank: '',  // Grade (S to F).
+      rank: '*',  // Grade (S to F).
       score: 0
     },
     search: {
