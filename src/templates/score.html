@@ -23,7 +23,7 @@
     <a-entity
       id="combo"
       mixin="scoreText"
-      bind__text="color: colorPrimary; value: 'STREAK  ' + score.combo"
+      bind__text="color: colorPrimary; value: 'Hit  ' + score.beatsHit"
       text="width: 3.5; align: left; anchor: left"
       rotation="-20 0 0"
       position="-0.025 0.175 0"></a-entity>
@@ -31,7 +31,7 @@
     <a-entity
       id="accuracy"
       mixin="scoreText"
-      bind__text="color: colorSecondary; value: score.accuracyInt + '%' + ' / ' + score.score"
+      bind__text="color: colorSecondary; value: 'Missed  ' + score.beatsMissed"
       text="width: 3.5; align: left; anchor: left"
       rotation="-20 0 0"></a-entity>
   </a-entity>
