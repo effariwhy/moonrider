@@ -185,10 +185,6 @@ AFRAME.registerState({
     beathit: (state, payload) => {
 
       state.score.beatsHit++;
-      state.score.combo++;
-      if (state.score.combo > state.score.maxCombo) {
-        state.score.maxCombo = state.score.combo;
-      }
 
       payload.score = isNaN(payload.score) ? 100 : payload.score;
       state.score.accuracyScore += payload.percent;
