@@ -12,10 +12,5 @@ sudo npm install -g yarn
 yarn install
 
 
-# codespace setup
-mkdir -p ~/.ssh
-echo -n "$PRI_KEY" > ~/.ssh/PRI_KEY
-# todo - perms
-
 
 
