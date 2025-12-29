@@ -31,7 +31,7 @@ Big thanks to @elliottate for helping out with this!
 
 ## Development
 
-Have Node (< v12, recommended v11) and npm installed.
+Have Node.js 22+ and npm installed.
 
 ```
 npm install
