@@ -2,11 +2,13 @@ var fs = require('fs');
 var ip = require('ip');
 var path = require('path');
 var webpack = require('webpack');
-const COLORS = require('./src/constants/colors.js');
+var COLORS = require('./src/constants/colors.js');
 
-PLUGINS = [
-  new webpack.EnvironmentPlugin(['DEBUG_LOG', 'NODE_ENV']),
-  new webpack.HotModuleReplacementPlugin(),
+var PLUGINS = [
+  new webpack.EnvironmentPlugin({
+    DEBUG_LOG: '',
+    NODE_ENV: 'development'
+  }),
   // @firebase/polyfill not loading, stub it with some random module.
   new webpack.NormalModuleReplacementPlugin(
     /firebase\/polyfill/,
@@ -15,12 +17,14 @@ PLUGINS = [
 ];
 
 module.exports = {
-  optimization: {
-    minimize: process.env.NODE_ENV === 'production'
-  },
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devServer: {
-    disableHostCheck: true,
-    hotOnly: true
+    allowedHosts: 'all',
+    hot: true,
+    server: 'https',
+    static: {
+      directory: __dirname
+    }
   },
   entry: {
     build: './src/index.js',
@@ -28,22 +32,21 @@ module.exports = {
   },
   output: {
     globalObject: 'this',
-    path: __dirname,
-    filename: 'build/[name].js'
+    path: path.resolve(__dirname, 'build'),
+    filename: '[name].js'
   },
   plugins: PLUGINS,
   module: {
     rules: [
       {
-        test: /\.js/,
+        test: /\.js$/,
         exclude: /(node_modules)/,
         use: ['babel-loader', 'aframe-super-hot-loader']
       },
       {
         test: /\.json/,
         exclude: /(node_modules)/,
-        type: 'javascript/auto',
-        loader: ['json-loader']
+        type: 'json'
       },
       {
         test: /\.html/,
@@ -85,7 +88,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)/,
-        loader: 'url-loader'
+        type: 'asset'
       }
     ]
   },
