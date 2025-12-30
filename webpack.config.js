@@ -20,11 +20,13 @@ module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devServer: {
     allowedHosts: 'all',
-    hot: true,
+    liveReload: true,
+    hot: false,
     server: 'https',
     static: {
       directory: __dirname
-    }
+    },
+    watchFiles: ['src/**', 'index.html']
   },
   entry: {
     build: './src/index.js',
@@ -33,6 +35,7 @@ module.exports = {
   output: {
     globalObject: 'this',
     path: path.resolve(__dirname, 'build'),
+    publicPath: '/build',
     filename: '[name].js'
   },
   plugins: PLUGINS,
