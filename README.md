@@ -38,7 +38,7 @@ npm install
 npm run start
 ```
 
-Then head to `localhost:3000` in your browser.
+Then head to `https://localhost:3000` in your browser.
 
 ### Remixing and Forking
 
