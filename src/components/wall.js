@@ -113,6 +113,9 @@ AFRAME.registerComponent('wall', {
     this.isCeiling = false;
     this.isRaycastable = false;
     this.el.sceneEl.components.pool__wall.returnEntity(this.el);
-    if (this.geometry) { this.geometry.dispose(); }
+    if (this.geometry) {
+      this.geometry.dispose();
+      this.geometry = null;
+    }
   }
 });
