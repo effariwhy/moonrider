@@ -106,15 +106,13 @@ AFRAME.registerComponent('wall', {
   })(),
 
   returnToPool: function () {
-    this.el.object3D.visible = false;
+    if (!this.el.isPlaying) { return; }
     this.el.removeAttribute('data-weapon-particles');
     this.el.removeAttribute('data-wall-active');
     this.el.removeAttribute('raycastable-game');
     this.isCeiling = false;
     this.isRaycastable = false;
-    if (this.el.isPlaying) {
-      this.el.sceneEl.components.pool__wall.returnEntity(this.el);
-    }
+    this.el.sceneEl.components.pool__wall.returnEntity(this.el);
     if (this.geometry) { this.geometry.dispose(); }
   }
 });
