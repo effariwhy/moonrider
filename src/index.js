@@ -5,8 +5,6 @@ console.time = () => {
 console.timeEnd = () => {
 };
 
-require('../vendor/BufferGeometryUtils');
-
 require('aframe-aabb-collider-component');
 require('aframe-atlas-uvs-component');
 require('aframe-audioanalyser-component');
