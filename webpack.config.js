@@ -35,7 +35,7 @@ module.exports = {
   output: {
     globalObject: 'this',
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/build',
+    publicPath: 'auto',
     filename: '[name].js'
   },
   plugins: PLUGINS,
