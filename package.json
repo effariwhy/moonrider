@@ -11,7 +11,7 @@
     "start": "webpack serve --host 0.0.0.0 --port 3000"
   },
   "dependencies": {
-    "aframe-aabb-collider-component": "^3.1.0",
+    "aframe-aabb-collider-component": "^3.2.2",
     "aframe-atlas-uvs-component": "^3.0.0",
     "aframe-audioanalyser-component": "^6.0.0",
     "aframe-event-decorators": "^1.0.2",
