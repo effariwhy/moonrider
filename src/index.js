@@ -21,6 +21,7 @@ require('aframe-orbit-controls');
 require('aframe-proxy-event-component');
 require('aframe-render-order-component');
 require('aframe-state-component');
+THREE.PlaneBufferGeometry =  THREE.PlaneGeometry; // slice9 still uses PlaneBufferGeometry
 require('aframe-slice9-component');
 require('aframe-thumb-controls-component');
 
