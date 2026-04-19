@@ -97,5 +97,11 @@ module.exports = {
   },
   resolve: {
     modules: [path.join(__dirname, 'node_modules')]
+  },
+  // A-Frame ships three.js and exposes it as window.THREE.
+  // Stub `import ... from 'three'` (used by some components) so it resolves
+  // to that global instead of bundling a second copy.
+  externals: {
+    three: 'THREE'
   }
 };
