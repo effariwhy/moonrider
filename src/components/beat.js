@@ -481,9 +481,10 @@ AFRAME.registerComponent('beat', {
       this.broken.emit('explode', this.explodeEventDetail, false);
     }
 
-    if (this.beatSystem.data.gameMode === CLASSIC && correctHit) {
-      weaponEl.components.trail.pulse();
-    }
+    // Don't want to feel this
+    // if (this.beatSystem.data.gameMode === CLASSIC && correctHit) {
+    //   weaponEl.components.trail.pulse();
+    // }
   },
 
   /**
@@ -507,7 +508,8 @@ AFRAME.registerComponent('beat', {
     }
 
     // Sound.
-    this.el.parentNode.components['beat-hit-sound'].playSound(this.el, this.cutDirection);
+    // interupts music
+    // this.el.parentNode.components['beat-hit-sound'].playSound(this.el, this.cutDirection);
 
     if (wrongHit) {
       this.wrongHit();

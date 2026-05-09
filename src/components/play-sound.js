@@ -39,7 +39,8 @@ AFRAME.registerComponent('play-sound', {
   init: function () {
     this.el.addEventListener(this.data.event, evt => {
       if (!this.data.enabled) { return; }
-      this.system.playSound(this.src, this.data.volume);
+      // interupts music
+      // this.system.playSound(this.src, this.data.volume);
     });
   },
 

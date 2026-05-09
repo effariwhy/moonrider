@@ -68,6 +68,7 @@ AFRAME.registerComponent('beat-hit-sound', {
   },
 
   playSound: function (beatEl, position, cutDirection) {
+    return; // hear the music w/o other sounds
     const rand = 1 + Math.floor(Math.random() * 10);
     const dir = this.directionsToSounds[cutDirection || 'up'];
     const soundPool = this.el.components[`sound__beathit${rand}${dir}`];

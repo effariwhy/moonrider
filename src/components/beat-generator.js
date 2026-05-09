@@ -322,6 +322,7 @@ AFRAME.registerComponent('beat-generator', {
   },
 
   generateWall: function (wallInfo) {
+    return; // too old for walls
     const data = this.data;
     const wallEl = this.el.sceneEl.components.pool__wall.requestEntity();
 
