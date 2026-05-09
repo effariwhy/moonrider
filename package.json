@@ -7,6 +7,7 @@
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
     "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor CNAME .ghpages",
+    "medeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/moonrider-latest && cp -r index.html assets build vendor ../effariwhy.github.io/moonrider-latest",
     "start": "webpack-dev-server --host 0.0.0.0 --progress --colors --hot-only --inline --port 3000"
   },
   "dependencies": {
