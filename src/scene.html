@@ -10,7 +10,6 @@
   bind__beat-system="gameMode: gameMode; hasVR: hasVR; isLoading: isLoading; isPlaying: isPlaying"
   bind__gameover="isGameOver: isGameOver"
   bind__intro-song="isPlaying: menuActive && !menuSelectedChallenge.id; isSearching: isSearching"
-  bind__leaderboard="difficulty: menuSelectedChallenge.difficulty || challenge.difficulty; beatmapCharacteristic: menuSelectedChallenge.beatmapCharacteristic || challenge.beatmapCharacteristic; gameMode: gameMode; inVR: inVR; isVictory: isVictory; menuSelectedChallengeId: menuSelectedChallenge.id; challengeId: challenge.id"
   bind__search="difficultyFilter: difficultyFilter; genre: genre; playlist: playlist; query: search.query"
   bind__song="audio: challenge.audio; challengeId: challenge.id; isLoading: isLoading; isPlaying: isPlaying; isBeatsPreloaded: challenge.isBeatsPreloaded; isGameOver: isGameOver; isVictory: isVictory"
   bind__song-preview-system="selectedChallengeId: menuSelectedChallenge.id; selectedChallengeVersion: menuSelectedChallenge.version"
@@ -30,7 +29,6 @@
   {% if DEBUG_INSPECTOR %}
     inspector="url: http://localhost:3333/dist/aframe-inspector.js"
   {% endif %}
-  leaderboard="apiKey: {{ firekey }}; authDomain: {{ firestore }}.firebaseapp.com; databaseURL: https://{{ firestore }}.firebaseio.com; projectId: {{ firestore }}; storageBucket: {{ firestore }}.appspot.com; messagingSenderId: 172125624222"
   loading-screen="backgroundColor: #000"
   pool__beat-arrow-blue="mixin: arrowBlueBeat; size: 30; container: #beatContainer; dynamic: true"
   pool__beat-arrow-red="mixin: arrowRedBeat; size: 30; container: #beatContainer; dynamic: true"
@@ -85,7 +83,6 @@
   <require path="templates/menu.html"></require>
   <require path="templates/modes.html"></require>
   <require path="templates/victory.html"></require>
-  <require path="templates/leaderboard.html"></require>
   <require path="templates/news.html"></require>
 
   <a-mixin

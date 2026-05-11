@@ -5,7 +5,6 @@ const convertBeatmap = require('../lib/convert-beatmap');
 
 const challengeDataStore = {};
 let HAS_LOGGED_VR = false;
-const NUM_LEADERBOARD_DISPLAY = 10;
 const SEARCH_PER_PAGE = 6;
 const SONG_NAME_TRUNCATE = 22;
 const SONG_SUB_NAME_RESULT_TRUNCATE = 32;
@@ -111,11 +110,6 @@ AFRAME.registerState({
     isSongProcessing: false,
     isVictory: false,  // Victory screen.
     isZipFetching: false,
-    leaderboard: [],
-    leaderboardFetched: false,
-    leaderboardQualified: false,
-    leaderboardNames: '',
-    leaderboardScores: '',
     mainMenuActive: false,
     menuActive: SKIP_INTRO, // Main menu active.
     menuDifficulties: [],
@@ -300,7 +294,6 @@ AFRAME.registerState({
       Object.assign(state.menuSelectedChallenge, DEBUG_CHALLENGE);
       Object.assign(state.challenge, DEBUG_CHALLENGE);
       state.isVictory = true;
-      state.leaderboardQualified = true;
       state.menuActive = false;
       state.score.accuracy = 74.99;
       state.score.beatsHit = 125;
@@ -375,7 +368,6 @@ AFRAME.registerState({
       state.isPaused = false;
       state.isLoading = true;
       state.isVictory = false;
-      state.leaderboardQualified = false;
     },
 
     gamemenuexit: state => {
@@ -390,7 +382,6 @@ AFRAME.registerState({
       state.menuSelectedChallenge.beatmapCharacteristic = state.challenge.beatmapCharacteristic;
       state.menuSelectedChallenge.difficultyId = state.challenge.difficultyId;
       state.challenge.id = '';
-      state.leaderboardQualified = false;
     },
 
     gamemode: (state, mode) => {
@@ -425,54 +416,6 @@ AFRAME.registerState({
     keyboardopen: state => {
       state.isSearching = true;
       state.menuSelectedChallenge.id = '';
-    },
-
-    /**
-     * High scores.
-     */
-    leaderboard: (state, payload) => {
-      state.leaderboard.length = 0;
-      state.leaderboardFetched = true;
-      state.leaderboardNames = '';
-      state.leaderboardScores = '';
-      for (let i = 0; i < payload.scores.length; i++) {
-        let score = payload.scores[i];
-        state.leaderboard.push(score);
-        state.leaderboardNames += `#${i + 1} ${truncate(score.username, 18)} (${Math.round(score.accuracy || 0)}%)\n`;
-        state.leaderboardScores += `${score.score}\n`;
-      }
-      state.leaderboardLoading = false;
-    },
-
-    leaderboardqualify: state => {
-      if (!state.has6DOFVR) { return; }
-      state.leaderboardQualified = true;
-    },
-
-    /**
-     * Insert new score into leaderboard locally.
-     */
-    leaderboardscoreadded: (state, payload) => {
-      // Insert.
-      for (let i = 0; i < state.leaderboard.length; i++) {
-        if (payload.scoreData.score >= state.leaderboard[i].score ||
-          i >= state.leaderboard.length - 1) {
-          state.leaderboard.splice(i, 0, payload.scoreData);
-          break;
-        }
-      }
-
-      state.leaderboardNames = '';
-      state.leaderboardScores = '';
-      for (let i = 0; i < state.leaderboard.length; i++) {
-        let score = state.leaderboard[i];
-        state.leaderboardNames += `${score.username} (${score.accuracy || 0}%)\n`;
-        state.leaderboardScores += `${score.score}\n`;
-      }
-    },
-
-    leaderboardsubmit: state => {
-      state.leaderboardQualified = false;
     },
 
     menuback: state => {
@@ -549,10 +492,6 @@ AFRAME.registerState({
       const isFavorited = !!state.favorites.filter(favorite => favorite.id === id).length;
       state.menuSelectedChallenge.isFavorited = isFavorited;
 
-      // Clear leaderboard.
-      clearLeaderboard(state);
-      state.leaderboardLoading = true;
-
       state.hasSongLoadError = false;
       if (badSongs[id]) {
         state.hasSongLoadError = true;
@@ -564,7 +503,6 @@ AFRAME.registerState({
       state.menuSelectedChallenge.difficultyId = '';
       state.menuSelectedChallenge.difficulty = '';
       state.menuSelectedChallenge.beatmapCharacteristic = '';
-      clearLeaderboard(state);
     },
 
     menudifficultyselect: (state, difficultyId) => {
@@ -580,8 +518,6 @@ AFRAME.registerState({
       state.menuSelectedChallenge.beatmapCharacteristic = difficulty.beatmapCharacteristic;
       updateMenuSongInfo(state, state.menuSelectedChallenge);
 
-      clearLeaderboard(state);
-      state.leaderboardLoading = true;
     },
 
     menuopeningend: state => {
@@ -990,14 +926,6 @@ function formatSongLength(songLength) {
 function computeBeatsText(state) {
   state.score.beatsText =
     `${state.score.beatsHit} / ${state.score.beatsMissed + state.score.beatsHit} BEATS`;
-}
-
-function clearLeaderboard(state) {
-  state.leaderboard.length = 0;
-  state.leaderboard.__dirty = true;
-  state.leaderboardNames = '';
-  state.leaderboardScores = '';
-  state.leaderboardFetched = false;
 }
 
 function updateMenuSongInfo(state, challenge) {
