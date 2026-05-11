@@ -549,14 +549,11 @@ AFRAME.registerState({
       if (state.playlist) { source = 'playlist'; }
       if (state.search.query) { source = 'search'; }
       if (state.genre) { source = 'genre'; }
-      gtag('event', 'songsource', { event_label: source });
 
       resetScore(state);
 
       // Set challenge.
       Object.assign(state.challenge, state.menuSelectedChallenge);
-
-      gtag('event', 'difficulty', { event_label: state.challenge.difficulty });
 
       // Reset menu.
       state.menuActive = false;
@@ -567,8 +564,7 @@ AFRAME.registerState({
       state.isSearching = false;
       state.isLoading = true;
       state.loadingText = 'Loading...'
-
-      gtag('event', 'colorscheme', { event_label: state.colorScheme });
+      
     },
 
     playlistclear: (state, playlist) => {
@@ -661,7 +657,7 @@ AFRAME.registerState({
     },
 
     songcomplete: state => {
-      gtag('event', 'songcomplete', { event_label: state.gameMode });
+      
 
       // Move back to menu in Ride or Viewer Mode.
       if (state.gameMode === 'ride' || !state.inVR) {
@@ -752,12 +748,6 @@ AFRAME.registerState({
 
     'enter-vr': state => {
       state.inVR = AFRAME.utils.device.checkHeadsetConnected();
-      if (!AFRAME.utils.device.isMobile()) { 
-        gtag('event', 'entervr', {});
-        if (AFRAME.utils.device.isOculusBrowser()) {
-          gtag('event', 'oculusbrowser', {});
-        }
-      }
     },
 
     'exit-vr': state => {
