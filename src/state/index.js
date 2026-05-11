@@ -769,9 +769,13 @@ AFRAME.registerState({
         state.score.rank = 'F';
       }
       // save play history for playlist cleanup
-      state.menuSelectedChallenge.accuracy = accuracy
-      state.menuSelectedChallenge.accuracydt = new Date().toISOString().replace(/[^0-9]/g, '').slice(0, 14)
-      state.playhistory.push(state.menuSelectedChallenge)
+      historyChallenge = {}
+      historyChallenge.hash = state.menuSelectedChallenge['versions'][0]['hash']
+      historyChallenge.key = state.menuSelectedChallenge['versions'][0]['key']
+      historyChallenge.difficultyId = state.menuSelectedChallenge['difficultyId']
+      historyChallenge.accuracy = accuracy
+      historyChallenge.accuracydt = new Date().toISOString().replace(/[^0-9]/g, '').slice(0, 14)
+      state.playhistory.push(JSON.stringify(historyChallenge))
       localStorage.setItem('playhistory', JSON.stringify(state.playhistory));
       computeBeatsText(state);
     },
