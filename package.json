@@ -8,7 +8,7 @@
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
     "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build .ghpages",
-    "testdeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/moonrider-test && rm -rf ../effariwhy.github.io/moonrider-test && mkdir -p ../effariwhy.github.io/moonrider-test && cp -r index.html assets build ../effariwhy.github.io/moonrider-test",
+    "testdeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p ../effariwhy.github.io/moonrider-test && shx rm -rf ../effariwhy.github.io/moonrider-test && shx mkdir -p ../effariwhy.github.io/moonrider-test && cp -r index.html assets build ../effariwhy.github.io/moonrider-test",
     "start": "webpack serve --host 0.0.0.0 --port 3000"
   },
   "dependencies": {
